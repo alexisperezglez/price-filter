@@ -69,6 +69,11 @@ Desarrollar unos tests al endpoint rest que validen las siguientes peticiones al
 | 5    | 1       | 35455     | 2020-06-16 21:00:00 |
 
 ## Solucion
+---
+**NOTA**
+
+Aunque el enunciado permite agregar campos a la tabla de la base de datos en esta solucion no se agrego ningun campo nuevo. En ocasiones existen desarrollos que no se pueden modificar la estructura de los datos existentes por lo que en este caso se prefirio ajustarse a lo que especifica el enunciado solamente.
+---
 
 La solucion al enunciado anterior se implementó utilizando una arquitectura hexagonal que se describe a continuacion:
 
