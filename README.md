@@ -137,15 +137,15 @@ La solucion al enunciado anterior se implemento utilizando una arquitectura hexa
 
 Algunas de las principales dependencias de la solucion incluyen:
 
-- lombok: generador de codigo en tiempo de compilacion que reduce la escritura de codigo repetitivo (ej. getters,
+- **lombok**: generador de codigo en tiempo de compilacion que reduce la escritura de codigo repetitivo (ej. getters,
   setters, constructores, metodo toString, etc...)
-- flyway: permite realizar migraciones de base de datos relacionales facilitando el desarrollo de nuevas
+- **flyway**: permite realizar migraciones de base de datos relacionales facilitando el desarrollo de nuevas
   funcionalidades.
-- h2: base de datos en memoria muy util para pruebas.
-- cucumber: permite la definicion de casos de prueba de forma declarativa utilizando Gerkin como lenguaje
-- rest-assured: Es una herramienta que permite la prueba de APIs con una implementacion declarativa que facilita la
+- **h2**: base de datos en memoria muy util para pruebas.
+- **cucumber**: permite la definicion de casos de prueba de forma declarativa utilizando Gerkin como lenguaje
+- **rest-assured**: Es una herramienta que permite la prueba de APIs con una implementacion declarativa que facilita la
   lectura de la prueba en cuestion.
-- mapstruct: permite realizar transformaciones de un objeto a otro de forma clara y sencilla
+- **mapstruct**: permite realizar transformaciones de un objeto a otro de forma clara y sencilla
 
 ## Aplicacion
 
@@ -179,13 +179,13 @@ La aplicacion cuenta con dos endpoints expuestos:
 
 Este endpoint sirve para comprobar si el servicio se esta ejecutando de manera correcta.
 
-`http://localhost:8080/api/rest/health`
+[http://localhost:8080/api/rest/health](http://localhost:8080/api/rest/health)
 
 #### Filtro de Precios
 
 Este endpoint tiene como objetivo el de retornar el precio final aplicable en un rango de fechas.
 
-`http://localhost:8080/api/rest/v1/price-filter`
+[http://localhost:8080/api/rest/v1/price-filter](http://localhost:8080/api/rest/v1/price-filter)
 
 Un ejemplo de peticion seria:
 
@@ -216,7 +216,7 @@ docker build -t pricefilter:1.0 .
 docker run -ti --rm -p 8080:8080 pricefilter:1.0
 ```
 
-Este comando eliminara el contenedor una vez terminemos su ejecucion.
+Este comando eliminará el contenedor una vez terminemos su ejecucion.
 
 ## API doc
 
