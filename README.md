@@ -82,53 +82,53 @@ La solución al enunciado anterior se implementó utilizando una arquitectura he
 ├── main
 │ ├── java
 │ │ └── es
-│ │ └── project
-│ │ └── pricefilter
-│ │ ├── application
-│ │ │ ├── ports
-│ │ │ │ ├── input
-│ │ │ │ └── output
-│ │ │ │ └── repository
-│ │ │ ├── service
-│ │ │ └── usecases
-│ │ ├── bootloader
-│ │ ├── domain
-│ │ │ ├── model
-│ │ │ └── service
-│ │ └── infrastructure
-│ │ ├── adapter
-│ │ │ ├── h2adapter
-│ │ │ │ ├── entity
-│ │ │ │ └── repository
-│ │ │ └── restadapter
-│ │ │ ├── api
-│ │ │ │ └── v1
-│ │ │ └── dto
-│ │ │ ├── input
-│ │ │ └── output
-│ │ └── mapper
+│ │     └── project
+│ │         └── pricefilter
+│ │             ├── application
+│ │             │ ├── ports
+│ │             │ │ ├── input
+│ │             │ │ └── output
+│ │             │ │     └── repository
+│ │             │ ├── service
+│ │             │   └── usecases
+│ │             ├── bootloader
+│ │             ├── domain
+│ │             │ ├── model
+│ │             │ └── service
+│ │             └── infrastructure
+│ │                 ├── adapter
+│ │                 │ ├── h2adapter
+│ │                 │ │ ├── entity
+│ │                 │ │ └── repository
+│ │                 │ └── restadapter
+│ │                 │    ├── api
+│ │                 │    │  └── v1
+│ │                 │    └── dto
+│ │                 │       ├── input
+│ │                 │       └── output
+│ │                 └── mapper
 │ └── resources
-│ └── db
-│ └── migration
+│   └── db
+│       └── migration
 └── test
-├── java
-│ └── es
-│ └── project
-│ └── pricefilter
-│ └── cucumberglue
-└── resources
-└── features
+    ├── java
+    │   └── es
+    │       └── project
+    │           └── pricefilter
+    │               └── cucumberglue
+    └── resources
+        └── features
 ```
 
 ### Definición de Paquetes
 
 | Paquete                 | Descripción                                                                                                                                                                           |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| application             | Contiene las configuraciones de la aplicación.                                                                                                                                        |
+| bootloader              | Contiene las configuraciones de la aplicación.                                                                                                                                        |
+| application             | Contiene las definiciones de la aplicación.                                                                                                                                           |
 | domain                  | contiene la lógica de negocios central de la aplicación. Es independiente de cualquier dependencia externa, incluyendo Spring Boot o cualquier tecnología de base de datos específica |
 | model                   | contiene las estructuras de dominio requeridas por la lógica de negocio                                                                                                               |
 | service                 | contiene la definición de la lógica de negocio.                                                                                                                                       |
-| service.impl            | Contiene las implementaciones especificas de la lógica de negocio y la interacción con los adaptadores.                                                                               |
 | infrastructure          | contiene las implementaciones concretas de los adaptadores. Es responsable de conectar la aplicación a sistemas externos, como bases de datos y APIs REST                             |
 | adapter                 | traducen entre la capa de dominio y el mundo exterior. Se pueden considerar como componentes "enchufa-bles" que se pueden reemplazar fácilmente sin afectar a la capa de dominio      |
 | api                     | contiene las piezas de código necesarias para los endpoints REST expuestos por la aplicación                                                                                          |
@@ -140,7 +140,6 @@ La solución al enunciado anterior se implementó utilizando una arquitectura he
 | persistence             | Contiene las piezas de código necesarias para la interacción con el sistema de almacenamiento externo                                                                                 |
 | entity                  | Contiene las estructuras de datos representativas de la base de datos.                                                                                                                |
 | repository              | Contiene las definiciones de las interacciones con el sistema de almacenamiento externo.                                                                                              |
-| repository.impl         | Contiene las implementaciones especificas de las interacciones con el sistema de almacenamiento externo.                                                                              |
 | db.migration            | Contiene los scripts sql de migración e inicialización de base de datos.                                                                                                              |
 | test.resources.features | Contiene las definiciones en lenguaje declarativo de los tests sobre la aplicación.                                                                                                   |
 
