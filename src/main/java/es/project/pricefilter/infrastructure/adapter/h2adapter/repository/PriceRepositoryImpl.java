@@ -1,13 +1,13 @@
-package es.project.pricefilter.infrastructure.adapter.persistence.repository.impl;
+package es.project.pricefilter.infrastructure.adapter.h2adapter.repository;
 
-import es.project.pricefilter.infrastructure.adapter.api.dto.input.FilterInput;
-import es.project.pricefilter.infrastructure.adapter.persistence.entity.Price;
-import es.project.pricefilter.infrastructure.adapter.persistence.repository.PriceRepository;
+import es.project.pricefilter.application.ports.output.repository.PriceRepository;
+import es.project.pricefilter.infrastructure.adapter.h2adapter.entity.PriceEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -22,14 +22,14 @@ public class PriceRepositoryImpl implements PriceRepository {
     }
 
     @Override
-    public Optional<Price> filterPrices(FilterInput filter) {
+    public Optional<PriceEntity> filterPrices(int brandId, int productId, LocalDateTime applicationDate) {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         Object[] params = new Object[]{
-                filter.getBrandId(),
-                filter.getProductId(),
-                filter.getApplicationDate().format(dtf)
+                brandId,
+                productId,
+                applicationDate.format(dtf)
         };
 
         String sqlQuery = """
@@ -40,7 +40,7 @@ public class PriceRepositoryImpl implements PriceRepository {
                         p.PRICE_LIST as priceList,
                         p.PRODUCT_ID as productId,
                         p.PRIORITY as priority,
-                        p.PRICE as price,
+                        p.PRICE as priceEntity,
                         p.CURR as currency
                     FROM PRICES as p
                     WHERE p.BRAND_ID = ? AND p.PRODUCT_ID = ? AND (?) BETWEEN p.START_DATE AND p.END_DATE
@@ -49,20 +49,20 @@ public class PriceRepositoryImpl implements PriceRepository {
                 """;
 
         try {
-            Price priceResult = this.jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> {
-                Price price = new Price();
-                price.setBrandId(rs.getInt("brandId"));
-                price.setStartDate(rs.getTimestamp("startDate").toLocalDateTime());
-                price.setEndDate(rs.getTimestamp("endDate").toLocalDateTime());
-                price.setPriceList(rs.getInt("priceList"));
-                price.setProductId(rs.getInt("productId"));
-                price.setPriority(rs.getInt("priority"));
-                price.setPrice(rs.getDouble("price"));
-                price.setCurrency(rs.getString("currency"));
-                return price;
+            PriceEntity priceEntityResult = this.jdbcTemplate.queryForObject(sqlQuery, (rs, rowNum) -> {
+                PriceEntity priceEntity = new PriceEntity();
+                priceEntity.setBrandId(rs.getInt("brandId"));
+                priceEntity.setStartDate(rs.getTimestamp("startDate").toLocalDateTime());
+                priceEntity.setEndDate(rs.getTimestamp("endDate").toLocalDateTime());
+                priceEntity.setPriceList(rs.getInt("priceList"));
+                priceEntity.setProductId(rs.getInt("productId"));
+                priceEntity.setPriority(rs.getInt("priority"));
+                priceEntity.setPrice(rs.getDouble("priceEntity"));
+                priceEntity.setCurrency(rs.getString("currency"));
+                return priceEntity;
             }, params);
 
-            return Optional.ofNullable(priceResult);
+            return Optional.ofNullable(priceEntityResult);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }

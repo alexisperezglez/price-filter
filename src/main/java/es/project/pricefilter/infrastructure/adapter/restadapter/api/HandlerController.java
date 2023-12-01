@@ -1,4 +1,4 @@
-package es.project.pricefilter.infrastructure.adapter.api.v1;
+package es.project.pricefilter.infrastructure.adapter.restadapter.api;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class HandlerController {
 
-    private ProblemDetail buildProblemDetail(HttpStatusCode status, String message) {
+    private ProblemDetail buildErrorResponse(HttpStatusCode status, String message) {
         return ProblemDetail.forStatusAndDetail(status, message);
     }
 
     @ExceptionHandler(value = {MethodArgumentNotValidException.class, HttpMessageNotReadableException.class})
     public ResponseEntity<ProblemDetail> handleMethodArgumentNotValid(Exception ex) {
-        ProblemDetail problemDetail = buildProblemDetail(HttpStatusCode.valueOf(400), ex.getMessage());
+        ProblemDetail problemDetail = buildErrorResponse(HttpStatusCode.valueOf(400), ex.getMessage());
         return ResponseEntity.badRequest().body(problemDetail);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ProblemDetail> handleHttpMessageNotReadableException(Exception ex) {
-        ProblemDetail problemDetail = buildProblemDetail(HttpStatusCode.valueOf(500), ex.getMessage());
+        ProblemDetail problemDetail = buildErrorResponse(HttpStatusCode.valueOf(500), ex.getMessage());
         return ResponseEntity.badRequest().body(problemDetail);
     }
 }
