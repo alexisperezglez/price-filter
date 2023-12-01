@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>es.project</groupId>
-    <artifactId>price-filter</artifactId>
+    <artifactId>priceEntity-filter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>price-filter</name>
+    <name>priceEntity-filter</name>
     <description>Demo application with hexagonal architecture and DDD approach</description>
     <properties>
         <java.version>17</java.version>

@@ -1,5 +1,4 @@
 Feature:
-
   Scenario Outline: Success Filter Prices
     When A valid filter request is received with param <brandId>, <productId> and <applicationDate>
     Then A response list with values is returned
@@ -13,11 +12,7 @@ Feature:
 
   Scenario: Prices Not Found
     When An outdated filter request is received
-    """json
-    {
-      "brandId": 1,
-      "productId": 35455,
-      "applicationDate": "2021-06-14 17:00:00"
-    }
-    """
+      | brandId         | 1                   |
+      | productId       | 35455               |
+      | applicationDate | 2021-06-14 17:00:00 |
     Then A 404 status code response is returned

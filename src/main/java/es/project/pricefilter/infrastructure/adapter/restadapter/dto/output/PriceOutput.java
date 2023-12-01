@@ -1,4 +1,4 @@
-package es.project.pricefilter.infrastructure.adapter.api.dto.output;
+package es.project.pricefilter.infrastructure.adapter.restadapter.dto.output;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

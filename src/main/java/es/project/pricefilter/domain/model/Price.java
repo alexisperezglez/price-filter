@@ -1,4 +1,4 @@
-package es.project.pricefilter.infrastructure.adapter.persistence.entity;
+package es.project.pricefilter.domain.model;
 
 import lombok.Data;
 
