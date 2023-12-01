@@ -6,7 +6,7 @@
     - [Campos](#campos)
     - [Objetivo](#objetivo)
     - [Requisitos](#requisitos)
-- [Solucion](#solucion)
+- [Solucion](#-solucion)
     - [Definicion de Paquetes](#definicion-de-paquetes)
     - [Dependencias](#dependencias)
 - [Aplicacion](#aplicacion)
@@ -20,7 +20,7 @@
 
 ## Ejercicio
 
-En la base de datos de comercio electrónico de la compañía disponemos de la tabla PRICES que refleja el precio final (
+En la base de datos de comercio electrónico de la compañía disponemos de la tabla PRICES que refleja el precio final(
 pvp) y la tarifa que aplica a un producto de una cadena entre unas fechas determinadas. A continuación se muestra un
 ejemplo de la tabla con los campos relevantes:
 
@@ -72,7 +72,7 @@ Desarrollar unos tests al endpoint rest que validen las siguientes peticiones al
 ---
 **NOTA**
 
-Aunque el enunciado permite agregar campos a la tabla de la base de datos en esta solucion no se agrego ningun campo nuevo. En ocasiones existen desarrollos que no se pueden modificar la estructura de los datos existentes por lo que en este caso se prefirio ajustarse a lo que especifica el enunciado solamente.
+Aunque el enunciado permite agregar campos a la tabla de la base de datos en esta solucion no se agregó ningun campo nuevo. En ocasiones existen desarrollos que no se pueden modificar la estructura de los datos existentes por lo que en este caso se prefirio ajustarse a lo que especifica el enunciado solamente.
 ---
 
 La solucion al enunciado anterior se implementó utilizando una arquitectura hexagonal que se describe a continuacion:
@@ -163,12 +163,12 @@ el siguiente comando:
 
 ### Ejecucion
 
-Este comando instalara las dependencias necesarias para ejecutar la aplicacion. Una vez haya finalizado la instalacion
+Este comando instalará las dependencias necesarias para ejecutar la aplicacion. Una vez haya finalizado la instalacion
 de las dependencias podemos levantar la aplicacion ejecutando el siguiente comando:
 
 `mvn spring-boot:run`
 
-Este comando levantara la aplicacion en el puerto 8080 (por defecto) permitiendo consumir los endpoints
+Este comando levantará la aplicacion en el puerto 8080 (por defecto) permitiendo consumir los endpoints
 
 ### Tests
 
@@ -182,7 +182,7 @@ La aplicacion cuenta con dos endpoints expuestos:
 
 #### Health
 
-Este endpoint sirve para comprobar si el servicio se esta ejecutando de manera correcta.
+Este endpoint sirve para comprobar si el servicio se está ejecutando de manera correcta.
 
 [http://localhost:8080/api/rest/health](http://localhost:8080/api/rest/health)
 
@@ -190,12 +190,12 @@ Este endpoint sirve para comprobar si el servicio se esta ejecutando de manera c
 
 Este endpoint tiene como objetivo el de retornar el precio final aplicable en un rango de fechas.
 
-[http://localhost:8080/api/rest/v1/price-filter](http://localhost:8080/api/rest/v1/price-filter)
+[http://localhost:8080/api/rest/v1/prices](http://localhost:8080/api/rest/v1/prices)
 
 Un ejemplo de peticion seria:
 
 ```shell
-curl --location 'http://localhost:8080/api/rest/v1/price-filter' \
+curl --location 'http://localhost:8080/api/rest/v1/prices' \
 --header 'Content-Type: application/json' \
 --data '{
     "brandId": 1,
