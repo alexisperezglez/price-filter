@@ -1,5 +1,6 @@
 package es.project.pricefilter.infrastructure.adapter.restadapter.dto.output;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Schema(description = "Price Output", name = "PriceOutput")
 @JsonNaming(PropertyNamingStrategies.LowerCamelCaseStrategy.class)
+@JsonPropertyOrder(alphabetic = true)
 public class PriceOutput {
 
     @Schema(name = "productId", requiredMode = Schema.RequiredMode.REQUIRED, description = "Product identifier", example = "35455")
