@@ -1,393 +1,398 @@
 {
-  "info": {
-    "_postman_id": "40ace728-3aad-464f-9493-48a3c980152e",
-    "name": "GFT-TEST",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "4455195"
-  },
-  "item": [
-    {
-      "name": "filter",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2020-06-15 10:00:00\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{BASE_URL}}/v1/price-filter",
-          "host": [
-            "{{BASE_URL}}"
-          ],
-          "path": [
-            "v1",
-            "price-filter"
-          ]
-        }
-      },
-      "response": [
-        {
-          "name": "OK",
-          "originalRequest": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2020-06-14 12:00:00\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/v1/price-filter",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "v1",
-                "price-filter"
-              ]
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "key": "Transfer-Encoding",
-              "value": "chunked"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 16:58:14 GMT"
-            },
-            {
-              "key": "Keep-Alive",
-              "value": "timeout=60"
-            },
-            {
-              "key": "Connection",
-              "value": "keep-alive"
-            }
-          ],
-          "cookie": [],
-          "body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 1,\n    \"startDate\": \"2020-06-14T00:00:00\",\n    \"endDate\": \"2020-12-31T23:59:59\",\n    \"price\": 35.5\n}"
-        },
-        {
-          "name": "OK - 2",
-          "originalRequest": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2020-06-14 17:00:00\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/v1/price-filter",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "v1",
-                "price-filter"
-              ]
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "key": "Transfer-Encoding",
-              "value": "chunked"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 16:59:00 GMT"
-            },
-            {
-              "key": "Keep-Alive",
-              "value": "timeout=60"
-            },
-            {
-              "key": "Connection",
-              "value": "keep-alive"
-            }
-          ],
-          "cookie": [],
-          "body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 2,\n    \"startDate\": \"2020-06-14T15:00:00\",\n    \"endDate\": \"2020-06-14T18:30:00\",\n    \"price\": 25.45\n}"
-        },
-        {
-          "name": "NOT FOUND",
-          "originalRequest": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2021-06-14 17:00:00\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/v1/price-filter",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "v1",
-                "price-filter"
-              ]
-            }
-          },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "plain",
-          "header": [
-            {
-              "key": "Content-Length",
-              "value": "0"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 08:53:22 GMT"
-            },
-            {
-              "key": "Keep-Alive",
-              "value": "timeout=60"
-            },
-            {
-              "key": "Connection",
-              "value": "keep-alive"
-            }
-          ],
-          "cookie": [],
-          "body": null
-        },
-        {
-          "name": "BAD REQUEST",
-          "originalRequest": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"productId\": 35455,\n    \"applicationDate\": \"2021-06-14 17:00:00\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{BASE_URL}}/v1/price-filter",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "v1",
-                "price-filter"
-              ]
-            }
-          },
-          "status": "Bad Request",
-          "code": 400,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/problem+json"
-            },
-            {
-              "key": "Transfer-Encoding",
-              "value": "chunked"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 09:05:22 GMT"
-            },
-            {
-              "key": "Connection",
-              "value": "close"
-            }
-          ],
-          "cookie": [],
-          "body": "{\n    \"type\": \"about:blank\",\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"detail\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.util.List<es.project.pricefilter.infrastructure.adapter.persistence.entity.Price>> es.project.pricefilter.infrastructure.adapter.api.v1.PriceFilterController.filterPrices(es.project.pricefilter.infrastructure.adapter.api.dto.input.FilterInput): [Field error in object 'filterInput' on field 'brandId': rejected value [0]; codes [Min.filterInput.brandId,Min.brandId,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [filterInput.brandId,brandId]; arguments []; default message [brandId],1]; default message [brandId must be greater than 0]] \",\n    \"instance\": \"/api/rest/v1/price-filter\"\n}"
-        }
-      ]
-    },
-    {
-      "name": "health",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{BASE_URL}}/health",
-          "host": [
-            "{{BASE_URL}}"
-          ],
-          "path": [
-            "health"
-          ]
-        }
-      },
-      "response": [
-        {
-          "name": "OK",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{BASE_URL}}/health",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "health"
-              ]
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/vnd.spring-boot.actuator.v3+json"
-            },
-            {
-              "key": "Transfer-Encoding",
-              "value": "chunked"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 15:32:33 GMT"
-            },
-            {
-              "key": "Keep-Alive",
-              "value": "timeout=60"
-            },
-            {
-              "key": "Connection",
-              "value": "keep-alive"
-            }
-          ],
-          "cookie": [],
-          "body": "{\n    \"status\": \"UP\",\n    \"components\": {\n        \"db\": {\n            \"status\": \"UP\",\n            \"details\": {\n                \"database\": \"H2\",\n                \"validationQuery\": \"isValid()\"\n            }\n        },\n        \"diskSpace\": {\n            \"status\": \"UP\",\n            \"details\": {\n                \"total\": 994662584320,\n                \"free\": 832702672896,\n                \"threshold\": 10485760,\n                \"path\": \"/Users/aoperezg/WORK/Projects/sources/price-filter/.\",\n                \"exists\": true\n            }\n        },\n        \"ping\": {\n            \"status\": \"UP\"\n        }\n    }\n}"
-        }
-      ]
-    },
-    {
-      "name": "api-docs",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{BASE_URL}}/v3/api-docs",
-          "host": [
-            "{{BASE_URL}}"
-          ],
-          "path": [
-            "v3",
-            "api-docs"
-          ]
-        }
-      },
-      "response": [
-        {
-          "name": "OK",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{BASE_URL}}/v3/api-docs",
-              "host": [
-                "{{BASE_URL}}"
-              ],
-              "path": [
-                "v3",
-                "api-docs"
-              ]
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "key": "Content-Length",
-              "value": "2776"
-            },
-            {
-              "key": "Date",
-              "value": "Sun, 26 Nov 2023 16:23:44 GMT"
-            },
-            {
-              "key": "Keep-Alive",
-              "value": "timeout=60"
-            },
-            {
-              "key": "Connection",
-              "value": "keep-alive"
-            }
-          ],
-          "cookie": [],
-          "body": "{\n    \"openapi\": \"3.0.1\",\n    \"info\": {\n        \"title\": \"demo\",\n        \"description\": \"Demo application with hexagonal architecture and DDD approach\",\n        \"contact\": {\n            \"name\": \"DevTeam\",\n            \"email\": \"exampleemail@gmail.com\"\n        },\n        \"license\": {\n            \"name\": \"Example\",\n            \"url\": \"https://www.example.com\"\n        },\n        \"version\": \"0.0.1-SNAPSHOT\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://localhost:8080/api/rest\",\n            \"description\": \"Generated server url\"\n        }\n    ],\n    \"tags\": [\n        {\n            \"name\": \"Price Filter\",\n            \"description\": \"Price Filter API\"\n        }\n    ],\n    \"paths\": {\n        \"/v1/price-filter\": {\n            \"post\": {\n                \"tags\": [\n                    \"Price Filter\"\n                ],\n                \"summary\": \"Filter prices\",\n                \"description\": \"Filter prices by brandId, productId and applicationDate\",\n                \"operationId\": \"filterPrices\",\n                \"requestBody\": {\n                    \"description\": \"Filter request input\",\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/FilterInput\"\n                            }\n                        }\n                    },\n                    \"required\": true\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"OK\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/PriceOutput\"\n                                }\n                            }\n                        }\n                    },\n                    \"400\": {\n                        \"description\": \"Bad Request\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/ProblemDetail\"\n                                }\n                            }\n                        }\n                    },\n                    \"404\": {\n                        \"description\": \"Not Found\",\n                        \"content\": {\n                            \"application/json\": {}\n                        }\n                    },\n                    \"500\": {\n                        \"description\": \"Internal Server Error\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/ProblemDetail\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"FilterInput\": {\n                \"required\": [\n                    \"applicationDate\",\n                    \"brandId\",\n                    \"productId\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                    \"applicationDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"Application date\",\n                        \"format\": \"date-time\"\n                    },\n                    \"productId\": {\n                        \"minimum\": 1,\n                        \"type\": \"integer\",\n                        \"description\": \"Product identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"brandId\": {\n                        \"minimum\": 1,\n                        \"type\": \"integer\",\n                        \"description\": \"Brand identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 1\n                    }\n                },\n                \"description\": \"Filter request input\"\n            },\n            \"PriceOutput\": {\n                \"required\": [\n                    \"brandId\",\n                    \"endDate\",\n                    \"price\",\n                    \"priceList\",\n                    \"productId\",\n                    \"startDate\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                    \"productId\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Product identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"brandId\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Brand identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 1\n                    },\n                    \"priceList\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Applicable pricing rate identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"startDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"date range in which the indicated price rate applies.\",\n                        \"format\": \"date-time\"\n                    },\n                    \"endDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"date range in which the indicated price rate applies.\",\n                        \"format\": \"date-time\"\n                    },\n                    \"price\": {\n                        \"type\": \"number\",\n                        \"description\": \"Price\",\n                        \"format\": \"double\",\n                        \"example\": 30.5\n                    }\n                },\n                \"description\": \"Price Output\"\n            },\n            \"ProblemDetail\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"type\": {\n                        \"type\": \"string\",\n                        \"format\": \"uri\"\n                    },\n                    \"title\": {\n                        \"type\": \"string\"\n                    },\n                    \"status\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int32\"\n                    },\n                    \"detail\": {\n                        \"type\": \"string\"\n                    },\n                    \"instance\": {\n                        \"type\": \"string\",\n                        \"format\": \"uri\"\n                    },\n                    \"properties\": {\n                        \"type\": \"object\",\n                        \"additionalProperties\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
-        }
-      ]
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "BASE_URL",
-      "value": "http://localhost:8080/api/rest",
-      "type": "string"
-    }
-  ]
+	"info": {
+		"_postman_id": "40ace728-3aad-464f-9493-48a3c980152e",
+		"name": "GFT-TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4455195"
+	},
+	"item": [
+		{
+			"name": "filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v1/prices?brandId=1&productId=35455&applicationDate=2020-06-14 10:00:00",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v1",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "1"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "applicationDate",
+							"value": "2020-06-14 10:00:00"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2020-06-14 12:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/price-filter",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"price-filter"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 16:58:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 1,\n    \"startDate\": \"2020-06-14T00:00:00\",\n    \"endDate\": \"2020-12-31T23:59:59\",\n    \"price\": 35.5\n}"
+				},
+				{
+					"name": "OK - 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2020-06-14 17:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/price-filter",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"price-filter"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 16:59:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"productId\": 35455,\n    \"brandId\": 1,\n    \"priceList\": 2,\n    \"startDate\": \"2020-06-14T15:00:00\",\n    \"endDate\": \"2020-06-14T18:30:00\",\n    \"price\": 25.45\n}"
+				},
+				{
+					"name": "NOT FOUND",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brandId\": 1,\n    \"productId\": 35455,\n    \"applicationDate\": \"2021-06-14 17:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/price-filter",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"price-filter"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 08:53:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "BAD REQUEST",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 35455,\n    \"applicationDate\": \"2021-06-14 17:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/price-filter",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"price-filter"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 09:05:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"about:blank\",\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"detail\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.util.List<es.project.pricefilter.infrastructure.adapter.persistence.entity.Price>> es.project.pricefilter.infrastructure.adapter.api.v1.PriceFilterController.filterPrices(es.project.pricefilter.infrastructure.adapter.api.dto.input.FilterInput): [Field error in object 'filterInput' on field 'brandId': rejected value [0]; codes [Min.filterInput.brandId,Min.brandId,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [filterInput.brandId,brandId]; arguments []; default message [brandId],1]; default message [brandId must be greater than 0]] \",\n    \"instance\": \"/api/rest/v1/price-filter\"\n}"
+				}
+			]
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/health",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/health",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.spring-boot.actuator.v3+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 15:32:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"components\": {\n        \"db\": {\n            \"status\": \"UP\",\n            \"details\": {\n                \"database\": \"H2\",\n                \"validationQuery\": \"isValid()\"\n            }\n        },\n        \"diskSpace\": {\n            \"status\": \"UP\",\n            \"details\": {\n                \"total\": 994662584320,\n                \"free\": 832702672896,\n                \"threshold\": 10485760,\n                \"path\": \"/Users/aoperezg/WORK/Projects/sources/price-filter/.\",\n                \"exists\": true\n            }\n        },\n        \"ping\": {\n            \"status\": \"UP\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api-docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v3/api-docs",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v3",
+						"api-docs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v3/api-docs",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v3",
+								"api-docs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2776"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 26 Nov 2023 16:23:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"openapi\": \"3.0.1\",\n    \"info\": {\n        \"title\": \"demo\",\n        \"description\": \"Demo application with hexagonal architecture and DDD approach\",\n        \"contact\": {\n            \"name\": \"DevTeam\",\n            \"email\": \"exampleemail@gmail.com\"\n        },\n        \"license\": {\n            \"name\": \"Example\",\n            \"url\": \"https://www.example.com\"\n        },\n        \"version\": \"0.0.1-SNAPSHOT\"\n    },\n    \"servers\": [\n        {\n            \"url\": \"http://localhost:8080/api/rest\",\n            \"description\": \"Generated server url\"\n        }\n    ],\n    \"tags\": [\n        {\n            \"name\": \"Price Filter\",\n            \"description\": \"Price Filter API\"\n        }\n    ],\n    \"paths\": {\n        \"/v1/price-filter\": {\n            \"post\": {\n                \"tags\": [\n                    \"Price Filter\"\n                ],\n                \"summary\": \"Filter prices\",\n                \"description\": \"Filter prices by brandId, productId and applicationDate\",\n                \"operationId\": \"filterPrices\",\n                \"requestBody\": {\n                    \"description\": \"Filter request input\",\n                    \"content\": {\n                        \"application/json\": {\n                            \"schema\": {\n                                \"$ref\": \"#/components/schemas/FilterInput\"\n                            }\n                        }\n                    },\n                    \"required\": true\n                },\n                \"responses\": {\n                    \"200\": {\n                        \"description\": \"OK\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/PriceOutput\"\n                                }\n                            }\n                        }\n                    },\n                    \"400\": {\n                        \"description\": \"Bad Request\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/ProblemDetail\"\n                                }\n                            }\n                        }\n                    },\n                    \"404\": {\n                        \"description\": \"Not Found\",\n                        \"content\": {\n                            \"application/json\": {}\n                        }\n                    },\n                    \"500\": {\n                        \"description\": \"Internal Server Error\",\n                        \"content\": {\n                            \"application/json\": {\n                                \"schema\": {\n                                    \"$ref\": \"#/components/schemas/ProblemDetail\"\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    },\n    \"components\": {\n        \"schemas\": {\n            \"FilterInput\": {\n                \"required\": [\n                    \"applicationDate\",\n                    \"brandId\",\n                    \"productId\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                    \"applicationDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"Application date\",\n                        \"format\": \"date-time\"\n                    },\n                    \"productId\": {\n                        \"minimum\": 1,\n                        \"type\": \"integer\",\n                        \"description\": \"Product identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"brandId\": {\n                        \"minimum\": 1,\n                        \"type\": \"integer\",\n                        \"description\": \"Brand identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 1\n                    }\n                },\n                \"description\": \"Filter request input\"\n            },\n            \"PriceOutput\": {\n                \"required\": [\n                    \"brandId\",\n                    \"endDate\",\n                    \"price\",\n                    \"priceList\",\n                    \"productId\",\n                    \"startDate\"\n                ],\n                \"type\": \"object\",\n                \"properties\": {\n                    \"productId\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Product identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"brandId\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Brand identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 1\n                    },\n                    \"priceList\": {\n                        \"type\": \"integer\",\n                        \"description\": \"Applicable pricing rate identifier\",\n                        \"format\": \"int32\",\n                        \"example\": 35455\n                    },\n                    \"startDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"date range in which the indicated price rate applies.\",\n                        \"format\": \"date-time\"\n                    },\n                    \"endDate\": {\n                        \"type\": \"string\",\n                        \"description\": \"date range in which the indicated price rate applies.\",\n                        \"format\": \"date-time\"\n                    },\n                    \"price\": {\n                        \"type\": \"number\",\n                        \"description\": \"Price\",\n                        \"format\": \"double\",\n                        \"example\": 30.5\n                    }\n                },\n                \"description\": \"Price Output\"\n            },\n            \"ProblemDetail\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"type\": {\n                        \"type\": \"string\",\n                        \"format\": \"uri\"\n                    },\n                    \"title\": {\n                        \"type\": \"string\"\n                    },\n                    \"status\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int32\"\n                    },\n                    \"detail\": {\n                        \"type\": \"string\"\n                    },\n                    \"instance\": {\n                        \"type\": \"string\",\n                        \"format\": \"uri\"\n                    },\n                    \"properties\": {\n                        \"type\": \"object\",\n                        \"additionalProperties\": {\n                            \"type\": \"object\"\n                        }\n                    }\n                }\n            }\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080/api/rest",
+			"type": "string"
+		}
+	]
 }
